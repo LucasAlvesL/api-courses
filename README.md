@@ -1,52 +1,51 @@
+# About the challenge
 
-# Sobre o Desafio
+This challenge was to develop a fictional API for a programming course company that uses CRUD to create courses.
 
-Nesse desafio foi desenvolvida uma API fictícia para uma empresa de cursos de programação, onde utilizei o CRUD, para criação de cursos.
+## Requirements
 
-## Requisitos
+#### The API should provide the following functionality
+- Create a new course
+- List all courses
+- Update a course by `id
+- Removing a course by `id`.
 
-#### A API deve conter as seguintes funcionalidades:
-    - Criação de um novo curso
-    - Listagem de todos os cursos
-    - Atualização de um curso pelo `id`
-    - Remover um curso pelo `id`
+### Routes and Business Rules
 
-### Rotas e regras de negócio
+Before we talk about routes, let's understand what structure (properties) a task should have:
 
-Antes das rotas, vamos entender qual a estrutura (propriedades) que uma task deve ter:
+- `id` - unique identifier for each course
+- `name` - name of the course
+- `category` - course category
+- `active` - whether the course is active or not
+- `created_at` - Date when the course was created
+- `updated_at` - Should always be changed to the date when the course was updated.
 
-- `id` - Identificador único de cada curso
-- `name` - Nome do curso
-- `category` - Categoria do curso
-- `Active` - Define se o curso está ativo ou não
-- `created_at` - Data de quando o curso foi criado.
-- `updated_at` - Deve ser sempre alterado para a data de quando o curso for atualizada.
+### Routes:
+- `POST - /courses`
 
-### Rotas:
-- `POST - /cursos`
-
-    Deve ser possível criar um curso no banco de dados, enviando os campos `name` e `category` por meio do `body` da requisição.
+    It should be possible to create a course in the database by sending the `name` and `category` fields in the `body` of the request.
     
-    Ao criar um curso, os campos: `id`, `created_at`   e `updated_at` devem ser preenchidos automaticamente, conforme a orientação das propriedades acima.
+    When creating a course, the fields: `id`, `created_at` and `updated_at` should be filled in automatically, as specified by the properties above.
 
-- `GET - /cursos`
+- `GET - /courses`
     
-    Deve ser possível listar todas os cursos salvos no banco de dados.
+    It should be possible to list all courses stored in the database.
     
-    Também deve ser possível realizar uma busca, filtrando os cursos pelo `name` e `category`
+    It should also be possible to do a search, filtering the courses by `name` and `category`.
     
-- `PUT - /cursos/:id`
+- `PUT - /courses/:id`
     
-    Deve ser possível atualizar um curso pelo `id`.
+    It must be possible to update a course by its `id`.
     
-    No `body` da requisição, deve receber somente o `name` e/ou `category` para serem atualizados.
+    In the `body` of the request, only the `name` and/or `category` should be sent to be updated.
     
-    Se for enviado somente o `name`, significa que o `category` não pode ser atualizado e vice-versa. Além disso `active` for informado nessa rota, ele deverá ser ignorado, pois a rota que deverá fazer essa atualização, é a de patch.
+    If only the `name` is sent, it means that the `category` cannot be updated and vice versa. In addition, if `active` is sent on this route, it should be ignored because the route that should do this update is the patch route.
 
-- `DELETE - /cursos/:id`
+- `DELETE - /courses/:id`
     
-    Deve ser possível remover um curso pelo `id`.
+    It should be possible to delete a course using its `id'.
     
-- `PATCH - /cursos/:id/active`
+- `PATCH - /courses/:id/active`
     
-    Essa rota servirá para marcar se o curso está ativo ou não, ou seja, um toggle entre true or false.
+    This pathname will mark if the course is active or not, i.e. a toggle between true or false.
