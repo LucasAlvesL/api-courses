@@ -7,8 +7,8 @@ This challenge was to develop a fictional API for a programming course company t
 #### The API should provide the following functionality
 - Create a new course
 - List all courses
-- Update a course by `id
-- Removing a course by `id`.
+- Update a course by `id`
+- Removing a course by `id`
 
 ### Routes and Business Rules
 
@@ -44,7 +44,7 @@ Before we talk about routes, let's understand what structure (properties) a task
 
 - `DELETE - /courses/:id`
     
-    It should be possible to delete a course using its `id'.
+    It should be possible to delete a course using its `id`.
     
 - `PATCH - /courses/:id/active`
     
